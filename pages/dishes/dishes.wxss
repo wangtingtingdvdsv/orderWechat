@@ -1,0 +1,329 @@
+/* 搜素模块以及订单模块整体样式 */
+.searchMoudle{
+  height: 100rpx;
+  background-color: #13BA84;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* 查看订单图标样式 */
+.searchorder{
+  height:80rpx;
+  width:80rpx;
+}
+/* 搜索框搜索菜品样式 */
+.search{
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  height: 60rpx;
+  width: 650rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20rpx;
+  align-items: center;
+}
+/* 搜索框放大镜图标 */
+.searchIcon{
+  height: 45rpx;
+  width: 45rpx;
+  margin-left:8rpx;
+  float: left;
+}
+/* 搜索框input样式 */
+.searchInput{
+  border: 1rpx solid #ffffff;
+  font-size:32rpx;
+  width:100%;
+}
+/* 单机搜索框隐藏提示文字样式 */
+.searchIcon:hover{
+  cursor: pointer;
+}
+
+
+
+/* 排序菜单模块 */
+.sortMoudle{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  font-size: 36rpx;
+  background-color: #ffffff;
+}
+/* 排序菜单左模块（好评优先模块） */
+.sortMoudleLeft{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  float: left;
+  border-right: 1rpx solid black;
+}
+/* 排序菜单右模块（价格优先模块） */
+.sortMoudleRight{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  float: left;
+  border-left: 1rpx solid black;
+}
+/* 好评优先图标 */
+.sortMoudlePraise{
+  margin:5rpx 0 0 5rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+/* 价格优先图标 */
+.sortMoudlePrice{
+  margin:5rpx 0 0 5rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+
+
+
+/* 菜品模块 */
+.dishesMoudle{
+  margin-top: 20rpx;
+}
+/* 选择菜品菜单模块 */
+.active{ 
+  background-color: #13BA84;
+  color: #ffffff;
+}
+/* 选择菜品左边菜单模块 */
+.dishesMoudleLeft{
+  margin-right: 5%;
+  float: left;
+  width: 30%;
+  background-color: #EBEBEB;
+  height:880rpx;
+}
+/* 选择菜品左边菜单下划线 */
+.single{
+  border-top: 8rpx solid #13BA84;
+  border-bottom: 8rpx solid #13BA84;
+}
+.package{
+  border-top: 8rpx solid #13BA84;
+  border-bottom: 8rpx solid #13BA84;
+}
+/* 选择菜品左边菜单文本框样式 */
+.single view, .package view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85rpx;
+  border-bottom: 5rpx solid #E5E5E7; 
+}
+/* 选择菜品右边菜品模块 */
+.dishesMoudleRight{
+  width:65%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+/* 选择菜品菜品菜品具体展示信息 */
+.evaluation{
+  color: #13BA84;
+}
+.dishesMoudleRight::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 菜品评价信息 */
+.starImage{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 菜品展示图片 */
+.mealPic{
+  float: left;
+  width: 180rpx;
+  height: 180rpx;
+}
+.info{
+  width: 270rpx;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size:32rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+.mealInfoTop{
+  overflow: auto;
+}
+/* 菜品具体信息展示 */
+.mealInfo{
+  float:left;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #E5E5E7;
+}
+/* 菜品描述 */
+.description, .sale{
+  color: #D7D7D7;
+  display: block;
+  font-size: 28rpx;
+  width: 440rpx;
+}
+/* 菜品价格 */
+.mealPrice{
+  margin-right: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: red;
+}
+/* 菜品名字 */
+.mealName{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 36rpx;
+}
+/* 增加菜品和减少菜品 */
+.minusImage{
+  width: 40rpx;
+  height: 40rpx;
+}
+.signImage{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 隐藏栏 */
+.hidden{
+  display: none;
+}
+
+
+
+/* 购物车详情信息 */
+.shopCar{
+  margin-left: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+/* 购物车整体模块信息 */
+.buyMoudle{
+  height: 120rpx;
+  line-height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+}
+/* 左边购物车价格展示信息 */
+.buyMoudleCar{
+  float: left;
+  width: 70%;
+  height: 120rpx;
+}
+/* 左边购物车结算信息 */
+.buyMoudleCalculation{
+  position: static;  
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #13BA84; 
+  float: right;
+  width: 30%;
+}
+/* 购物车价格 */
+.totalMoney{
+  color: red;
+  font-size: 48rpx;
+}
+/* 是否支持配送 */
+.startingCondition{
+  font-size: 32rpx;
+}
+
+/* 点击购物车使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框 */
+.commodity_attr_box {
+  max-height: 650rpx;
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+}
+/* 购物车具体内部信息 */
+.sure{
+  height: 100rpx;
+  border: 1px solid black;
+  position: fixed;
+  bottom: 0;
+}
+/* 购物车内部菜品信息 */
+.mealDetail{
+  padding: 0 20rpx;
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+/* 点击购物车之后，价格信息 */
+.bottom{
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+}
+/* 将购物车信息取消展示 */
+.spreadMoney{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+  background-color: #13BA84; 
+  width: 30%;
+}
+/* 清空购物车背景色 */
+.bottomSpread{
+  font-size: 30rpx;
+  color: rgb(228, 226, 226);
+}
+.deleteShopCar{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color:  rgb(228, 226, 226);
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size:32rpx;
+  padding-right: 30rpx;
+}
+/* 购物车内部商品价格信息 */
+.bottomTotalMoney{
+  width: 70%;
+  font-size: 60rpx;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx;
+}

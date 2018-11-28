@@ -1,0 +1,43 @@
+<!-- 评价整体页面信息  -->
+<view class="theContainer"> 
+<!-- 评价信息 -->
+  <view class='container-post'>
+  <!-- 评价列表 -->
+   <view class="orderList" wx:for="{{product}}" wx:key="product">
+      <view >
+      <!-- 评价题目（菜品名称） -->
+        <view class="order-title-restaurantName">
+         {{item.productName}}：</view>
+      </view>
+      <!-- 评价菜品详情 -->
+      <view class="order-commodity">
+      <!-- 评价菜品图片 -->
+        <image class="order-content-restaurantImg"
+         src="../../pic/guobafan.png"></image>
+        <view class="order-content-info">
+        <!-- 评价信息具体内容 -->
+          <view class='container-commodity'>
+          <!-- 评价星星 -->
+            <view>商品质量：</view>       
+            <image  wx:for="{{starNum[item.productId].one_1}}"  wx:key="starNum[item.productId].one_1" wx:for-item="itemName"  id="{{item.productId}}" catchtap='in_xin1' data-in='use_sc2' src='../../pic/evalutionStar.png' class='Starimg'>></image>     
+            <image wx:for="{{starNum[item.productId].two_1}}"  wx:key="starNum[item.productId].two_1"wx:for-item="itemName"  id="{{item.productId}}" catchtap='in_xin1' data-in='use_sc' src='../../pic/badStar.png' class='Starimg'>></image>     
+          </view>
+
+          <view class='container-commodity'>
+            <view>口味：</view>
+            <image wx:for="{{starNum[item.productId].one_2}}"  wx:key="{{starNum[item.productId].one_2}}"wx:for-item="itemName" id='{{item.productId}}' catchtap='in_xin2' data-in='use_sc2' src='../../pic/evalutionStar.png' class='Starimg'>></image>
+            <image wx:for="{{starNum[item.productId].two_2}}"   wx:key="{{starNum[item.productId].two_2}}" wx:for-item="itemName" id='{{item.productId}}' catchtap='in_xin2' data-in='use_sc' src='../../pic/badStar.png' class='Starimg'>></image>
+          </view>
+
+          <view class='container-commodity'>
+            <view>包装：</view>           
+            <image wx:for="{{starNum[item.productId].one_3}}"  wx:key="{{starNum[item.productId].one_3}}" wx:for-item="itemName" id='{{item.productId}}' catchtap='in_xin3' data-in='use_sc2' src='../../pic/evalutionStar.png' class='Starimg'>></image>
+            <image wx:for="{{starNum[item.productId].two_3}}"  wx:key="{{starNum[item.productId].two_3}}" wx:for-item="itemName" id='{{item.productId}}' catchtap='in_xin3' data-in='use_sc' src='../../pic/badStar.png' class='Starimg'>></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 评价提交信息 -->
+<view class='submitComment' bindtap='submitCommentButton'>提交评价</view>

@@ -1,0 +1,65 @@
+.container{
+  display: flex;
+  padding: 20rpx;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+.paythings{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.paymoney{
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  border-bottom: 1rpx solid #E5E5E7;
+}
+.paypeople{
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  border-bottom: 1rpx solid #E5E5E7;
+}
+.payaddress{
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  border-bottom: 1rpx solid #E5E5E7;
+}
+.paytime{
+  display: flex;
+  flex-direction: row;
+  width: 750rpx;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  border-bottom: 1rpx solid #E5E5E7;
+}
+.fontmoney{
+  color: #A4A4A4;
+  font-size: 32rpx;
+  padding:10rpx 50rpx;
+}
+.fontthing{
+  color: #A4A4A4;
+  font-size: 28rpx;
+  padding:10rpx 50rpx;
+}
+.fontthething{
+  font-size: 28rpx;
+  padding:10rpx;
+  margin-right: 30rpx;
+}
+.return{
+  width: 90%;
+  background-color: #13BA84;
+  margin-top:80rpx;
+  color: #ffffff;
+}

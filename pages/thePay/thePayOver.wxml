@@ -1,0 +1,23 @@
+<!-- 订单付款结束信息 -->
+<view class='container'>
+  <image src='../../pic/payover.png' style='margin-top:0;width:300rpx;height:300rpx;'></image>
+<view class='paythings'>
+  <view class='paymoney'>
+    <view class='fontmoney'>付款金额</view>
+    <view style="color:red;margin-right:30rpx">￥{{total}}元</view>
+  </view>
+  <view class='paypeople'>
+    <view class='fontthing'>收货人</view>
+    <view class='fontthething'>{{delivery.name}}</view>
+  </view>
+  <view class='payaddress'>
+    <view class='fontthing'>送货地址</view>
+    <view class='fontthething'>{{delivery.address}}</view>
+  </view>
+  <view class='paytime'>
+    <view class='fontthing'>送餐时间</view>
+    <view class='fontthething'>{{delivery.time}}</view>
+  </view>
+</view>
+  <button class="return" bindtap='Return'>回到首页</button>
+</view>

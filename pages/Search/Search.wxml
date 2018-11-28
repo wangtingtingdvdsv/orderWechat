@@ -1,0 +1,21 @@
+<!-- 搜索菜品信息 -->
+<view class="searchMoudle">
+    <view class="search">
+    <!-- 搜索菜品图标 -->
+      <image class="searchIcon" src="../../pic/search.png" alt="搜素图标"></image>
+      <!-- 搜索菜品input框 -->
+      <input class="searchInput" bindinput="Search" type="text" placeholder="请输入您需要的菜品名称"></input>
+    </view>
+       <!-- data-keywords="{{i.name}}" -->
+</view>
+<!-- 异步刷新展示菜品信息 -->
+<!-- 提示菜品信息文本框 -->
+<cover-view
+  id='{{i.productId}}'
+  bindtouchstart="bindSearch"      
+  class="text_box" 
+  wx:for="{{productJson}}" 
+  wx:key="Search" 
+  wx:for-item="i">
+    {{i.productName}}
+</cover-view>

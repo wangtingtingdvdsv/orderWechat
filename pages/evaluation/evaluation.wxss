@@ -1,0 +1,55 @@
+/* 用户评价页面 */
+page{
+  background-color: rgb(247, 244, 244);
+}
+.peopleEvalution{
+  margin-top: 20rpx;
+  height: 250rpx;
+  width: 100%;
+  background-color: white;
+  padding-left: 30rpx;
+}
+/* 用户头像 */
+.people{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  float: left;
+}
+/* 用户名称 */
+.evaluation{
+  float: left;
+}
+/* 评价图标信息 */
+.evaluationStar{
+  width: 70rpx;
+  height: 70rpx;
+}
+.time{
+  font-size: 25rpx;
+}
+.evaluationStarNum{
+  display: flex;
+  align-items: center;
+}
+/* 评价时间信息 */
+.evaluationTime{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+/* 包装信息 */
+.container-commodity{
+  display: flex;
+  font-size: 32rpx;
+  flex-direction: row;
+  width: 500rpx;
+  justify-content: flex-end;
+  align-items: center;
+}
+.Starimg{
+  width: 50rpx;
+  height: 50rpx;
+}

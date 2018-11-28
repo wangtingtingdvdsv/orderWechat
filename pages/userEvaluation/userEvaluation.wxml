@@ -1,0 +1,39 @@
+<!-- 评价整体页面信息  -->
+<view class="theContainer"> 
+<!-- 评价信息 -->
+  <view class='container-post'>
+  <!-- 评价列表 -->
+   <view class="orderList" wx:for="{{product}}" wx:key="product">
+      <view >
+      <!-- 评价题目（菜品名称） -->
+        <view class="order-title-restaurantName">
+         {{item.productName}}：</view>
+         <image class="order-content-restaurantImg"
+         src=" {{item.productIcon}}"></image>
+      </view>
+      <!-- 评价菜品详情 -->
+      <view class="order-content-info">
+        <view class='container-commodity'>
+        <!-- 商品质量 -->
+          <view>商品质量：</view>
+          <image wx:for="{{item.qualityScore}}" wx:key="{{item.qualityScore}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
+          <image wx:for="{{5-item.qualityScore}}" wx:key="{{5-item.qualityScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+        </view>
+        <!-- 口味信息 -->
+        <view class='container-commodity'>
+          <view>口味：</view>
+          <image wx:for="{{item.tasteScore}}" wx:key="{{item.tasteScore}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
+          <image wx:for="{{5-item.tasteScore}}" wx:key="{{5-item.tasteScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+        </view>
+        <!-- 包装信息 -->
+        <view class='container-commodity'>
+          <view>包装：</view>
+          <image wx:for="{{item.packingScore}}" wx:key="{{item.packingScore}}" src='../../pic/evalutionStar.png' class='Starimg'>></image>
+          <image wx:for="{{5-item.packingScore}}"  wx:key="{{5-item.packingScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 评价提交信息 -->
+<view class='submitComment' bindtap='backToOrder'>回到订单页</view>

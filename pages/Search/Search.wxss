@@ -1,0 +1,41 @@
+/* 搜索菜品信息 */
+.searchMoudle{
+  height: 100rpx;
+  background-color: #13BA84;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.search{
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  height: 60rpx;
+  width: 700rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20rpx;
+  align-items: center;
+}
+/* 搜索菜品图标 */
+.searchIcon{
+  height: 45rpx;
+  width: 45rpx;
+  margin-left:8rpx;
+  float: left;
+}
+/* 搜索菜品input框 */
+.searchInput{
+  border: 1rpx solid #ffffff;
+  font-size:32rpx;
+  width:100%;
+}
+/* 选中input框隐藏提示信息 */
+.searchIcon:hover{
+  cursor: pointer;
+}
+/* 提示菜品信息文本框 */
+.text_box{
+  margin: 10px 25px;
+  border-bottom:1px solid #c3c3c3;
+  padding-bottom:10px
+}

@@ -1,0 +1,80 @@
+
+/* 评价整体页面信息 */
+.theContainer{
+  display: flex;
+  flex-direction: column;
+}
+/* 评价信息 */
+.container-post{
+  margin: 20rpx 0 ;
+}
+/* 评价信息具体内容 */
+.container-commodity{
+  display: flex;
+  font-size: 32rpx;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* 评价星星 */
+.Starimg{
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 评价列表 */
+.orderList{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 100rpx 0;
+  padding: 50rpx 0;
+  border-style: solid;
+  border-color: #ECECEC;
+}
+/* 评价题目（菜品名称） */
+.order-title-restaurantName{
+  padding:20rpx;
+  height: 100%;
+  font-size: 32rpx;
+}
+/* 评价菜品（菜品图片） */
+.order-content-restaurantImg{
+  width: 200rpx;
+  height: 125rpx;
+}
+/* 评价菜品详情 */
+.order-commodity{
+  padding: 50rpx 0 50rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #ECECEC; 
+}
+/* 评价菜品图片 */
+.order-content-restaurantImg{
+  width: 200rpx;
+  height: 125rpx;
+}
+/* 评价提交信息 */
+.order-footer-submit{
+  margin-top: 15rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 200rpx;
+  text-align: center;
+  border: 1rpx solid #ECECEC;
+  background: #13BA84;
+  color: #ffffff;
+}
+.submitComment{
+  margin-top: 100rpx;
+  height: 100rpx;
+  font-size: 36rpx;
+  color:#ffffff;
+  background: #13BA84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

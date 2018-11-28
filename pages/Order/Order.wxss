@@ -1,0 +1,102 @@
+/* pages/order/order.wxss */
+.container{
+  height: 100%;
+}
+ /* 用户订单信息  */
+.orderList{
+  width: 100%;
+  padding: 20rpx;
+  border: 100rpx 0;
+  border-style: solid;
+  border-color: #ECECEC;
+}
+ /* 用户订单时间信息及支付信息  */
+.order-title{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid #ECECEC;
+  display: flex;
+  justify-content: space-between;
+}
+ /* 用户订单时间信息  */
+.order-title-restaurantName{
+  width: 500rpx;
+  height: 100%;
+  font-size: 32rpx;
+}
+ /* 用户订单支付信息 */
+.order-title-state{
+  width: 130rpx;
+  color: #D2D2D2;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+}
+ /* 用户下单内容信息  */
+.order-content{
+  padding: 50rpx 0 50rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #ECECEC; 
+}
+ /* 用户订单内容图片  */
+.order-content-restaurantImg{
+  width: 200rpx;
+  height: 125rpx;
+}
+ /* 用户订单价格及详情  */
+.order-content-info{
+  font-size: 25rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/* 用户订单详情  */
+.order-content-info-howToDistribute{
+  line-height: 42rpx;
+  margin-left: 30rpx;
+}
+/* 用户订单价格  */
+.order-content-info-price{
+  color: red;
+  font-size: 30rpx;
+  margin-left: 400rpx;
+  position: absolute;
+}
+/* 用户订单地址及是否购买信息  */
+.order-footer{
+  width: 100%;
+  margin-top: 15rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+.order-footer-address{
+  margin-left:20rpx;
+  margin-right: 80rpx; 
+  color: #8C8B8B;
+}
+.order-footer-goToComment,.order-footer-orderAgain{
+  margin-right: 40rpx; 
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 180rpx;
+  text-align: center;
+  border: 1rpx solid #ECECEC;
+}
+/* 跳转按钮回到菜单 */
+.order-footer-orderAgain{
+  
+  border: 1rpx solid #ECECEC;
+  margin-right: 40rpx;
+}
+/* 跳转按钮去评论或查看评论 */
+.order-footer-goToComment{
+  border: 1rpx solid #ECECEC;
+  background: #13BA84;
+  color: #ffffff;
+}

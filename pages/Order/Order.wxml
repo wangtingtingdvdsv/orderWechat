@@ -1,0 +1,36 @@
+<!-- 用户订单信息 -->
+<block wx:for="{{orderList}}" wx:key="orderList">
+    <view class="orderList">
+      <view class="order-title">
+        <!-- 用户订单时间信息 --> 
+        <view class="order-title-restaurantName">
+         {{item.deliveryTime}}</view>
+         <!-- 用户订单支付信息 -->
+        <view class="order-title-state">{{item.payStatus === 0? '支付失败':'支付成功'}}</view>
+      </view>
+      <view class="order-content">
+        <image class="order-content-restaurantImg"
+         src=" {{item.orderDetailList[0].productIcon}}"></image>
+        <view class="order-content-info">
+          <view class="order-content-info-howToDistribute">
+          <!-- 用户订单内容信息 -->
+            <view wx:for="{{item.orderDetailList}}" wx:key="orderDetailList">
+            {{item.productName}} —— {{item.productQuantity}}</view>
+          </view>
+          <view class="order-content-info-price">￥ {{item.orderAmount}}</view>
+        </view>
+      </view>
+      <view class="order-footer">
+      <!-- 用户订单地址信息 且需选择是否购买 -->
+        <view class="order-footer-address">地址:{{item.userAddress}}</view>
+        <!-- <view wx:if="{{item.payStatus === 0}}" id='{{item.orderId}}' class="order-footer-goToComment" bindtap='lookComment'>
+        查看评论</view> -->
+        <view wx:if="{{item.payStatus === 1 && item.commentStatus === 1}}" id='{{item.orderId}}' class="order-footer-goToComment" bindtap='lookComment'>
+        我的评论</view>
+        <view wx:if="{{item.payStatus === 1 && item.commentStatus === 0}}" id='{{item.orderId}}' class="order-footer-goToComment" bindtap='goToComment'>
+        去评论</view>
+        
+        <view class="order-footer-orderAgain" bindtap='orderAgain'>回到菜单</view>
+      </view>
+    </view>
+</block> 
