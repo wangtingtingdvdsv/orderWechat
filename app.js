@@ -6,9 +6,9 @@ App({
     orderId:'',
     mealOrderInfo:{
       num: "",
-      productName: "",
-      productPrice: "",
-      productId: ""
+      product_name: "",
+      product_price: "",
+      product_id: ""
     },
     address: {
       userName: "",

@@ -28,10 +28,10 @@ Page({
                     'content-type': 'application/json'
                   },
                   success: function (resInfo) {
-                    //console.log("sucess",resInfo);
-                    app.globalData['userId'] = resInfo.data.data.user_id;
-                    app.globalData['userOpenid'] = resInfo.data.data.user_openid ;
-                    //console.log(resInfo.data.data.userOpenid)
+                    console.log("sucess",resInfo);
+                    app.globalData['userId'] = resInfo.data.data[0].user_id;
+                    app.globalData['userOpenid'] = resInfo.data.data[0].user_openid ;
+                   // console.log("@###@#", resInfo.data.data[0].user_openid)
                     wx.redirectTo({
                       url: '../dishes/dishes',
                     })

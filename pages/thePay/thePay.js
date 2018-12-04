@@ -95,7 +95,7 @@ function wallet_pay(_this) {
   })
   // 支付结束将订单状态反回给后端
   wx.request({
-    url: 'https://cxd.mynatapp.cc/buyer/order/pay',
+    url: 'https://wangtingting.top:9009/buyer/orderPay',
     method: 'POST',
     header: {
       'content-type': 'application/json'

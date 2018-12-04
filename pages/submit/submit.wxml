@@ -31,9 +31,9 @@
 <view class='mealInfoMoudle'>
   <view class='name'>医院食堂</view>
   <view wx:key="ChoiceMeal" wx:for ="{{mealOrderInfo}}" wx:if="{{item.num != 0}}" class="mealName">
-      <text>{{item.productName}}</text>
+      <text>{{item.product_name}}</text>
       <text class='num'>{{item.num}}</text>
-      <text style='color:red;'>￥{{item.productPrice*item.num}}</text>
+      <text style='color:red;'>￥{{item.product_price*item.num}}</text>
   </view>
   <view class="totalMoney">总计￥{{total}}</view>
 </view>

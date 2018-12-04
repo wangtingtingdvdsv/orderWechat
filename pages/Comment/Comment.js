@@ -122,7 +122,7 @@ Page({
 
 
     wx.request({
-        url: 'https://cxd.mynatapp.cc/buyer/comment/',
+      url: 'https://wangtingting.top:9009/buyer/createComment',
         method: 'POST',
         header: {
           'content-type': 'application/json'
@@ -145,50 +145,6 @@ Page({
       })
     }
 
-    // for (let obj in that.data.starNum) {
-    //   console.log("obj", obj);
-    //   wx.request({
-    //     url: 'https://cxd.mynatapp.cc/buyer/comment/',
-    //     method: 'POST',
-    //     header: {
-    //       'content-type': 'application/json'
-    //     },
-    //     data: [
-    //       {
-    //         orderId: that.data.orderId,
-    //         productId: obj,
-    //         userOpenid: app.globalData.userOpenid,
-    //         qualityScore: that.data.starNum[obj].one_1,
-    //       },
-    //       {
-    //         orderId: that.data.orderId,
-    //         productId: obj,
-    //         userOpenid: app.globalData.userOpenid,
-    //         tasteScore: that.data.starNum[obj].one_2,
-    //       },
-    //       {
-    //         orderId: that.data.orderId,
-    //         productId: obj,
-    //         userOpenid: app.globalData.userOpenid,
-    //         packingScore: that.data.starNum[obj].one_3
-    //       }
-          
-    //     ],
-    //     success: function (res) {
-    //       console.log(that.data.starNum[obj].one_1)
-    //       wx.showToast({
-    //         title: '评价成功',
-    //         icon: 'success',
-    //         duration: 2000
-    //       })
-    //       wx.reLaunch({
-    //         url: '../dishes/dishes',
-    //       })
-    //     },
-    //     error: function (error) {
-    //       console.log("error", error)
-    //     }
-    //   })
-    // }
+    
   
 })

@@ -51,7 +51,7 @@ Page({
             that.data.mealOrderInfo[data[i].products[j].product_id] = {};
             that.data.mealOrderInfo[data[i].products[j].product_id].num = 0;
             that.data.mealOrderInfo[data[i].products[j].product_id].product_id = data[i].products[j].product_id;
-            that.data.mealOrderInfo[data[i].products[j].product_id].productName = data[i].products[j].productName;
+            that.data.mealOrderInfo[data[i].products[j].product_id].product_name = data[i].products[j].product_name;
             that.data.mealOrderInfo[data[i].products[j].product_id].product_price = data[i].products[j].product_price;
           }
         }
@@ -91,23 +91,24 @@ Page({
       }
     })
     //获取收获地址
-    let userId = app.globalData.userId;
+    let userOpenid = app.globalData.userOpenid;
     wx.request({
       url: 'https://wangtingting.top:9009/user/info/search',
       method: 'GET',
       data: {
-        userId: userId
+        openId: userOpenid
       },
       header: {
         'content-type': 'html/text'
       },
       success: function (resInfo) {
-        var data = resInfo.data.data;
-    
-        app.globalData.address.userName = data.userName;
-        app.globalData.address.userAddress = data.userAddress;
-        app.globalData.address.userPhone = data.userPhone;
-        app.globalData.address.userGender = data.userGender;
+        var data = resInfo.data.data[0];
+        console.log("@@@@@resInfo", data);
+        app.globalData.address.userName = data.user_name;
+        app.globalData.address.userAddress = data.user_address;
+        app.globalData.address.userPhone = data.user_phone;
+        app.globalData.address.userGender = data.user_gender;
+        
       },
       error: function(){
         console.log("错误");
@@ -301,6 +302,7 @@ Page({
     }
     else{
       var url;
+   
       if(app.globalData.address.userPhone &&
         app.globalData.address.userGender &&
         app.globalData.address.userName &&

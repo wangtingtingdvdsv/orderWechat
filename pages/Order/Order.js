@@ -19,28 +19,36 @@ Page({
     console.log(userOpenid)
     var that = this;
     wx.request({
-      url: 'https://cxd.mynatapp.cc/buyer/order/' + userOpenid,
+      url: 'http://localhost:3008/buyer/searchOrderByopenid',
       method:'GET',
+      data:{
+        openId: userOpenid
+      },
       header: {
         'content-type': 'application/json'
       },
       success:function(resInfo){
-        console.log("订单详情", resInfo.data.data);
+      
         var deliveryOrder = resInfo.data.data
+        console.log("订单详情", resInfo.data.data);
+        if (!deliveryOrder) {
+          return
+        }
         for (var i = 0; i < resInfo.data.data.length; i++){
-          deliveryOrder[i].deliveryTime = time.formatTimeTwo(resInfo.data.data[i].deliveryTime, 'Y-M-D h:m')
+          deliveryOrder[i].deliveryTime = time.formatTimeTwo(parseInt(resInfo.data.data[i].delivery_time), 'Y-M-D h:m')
         }
         that.setData({
           orderList: deliveryOrder
         })
+        console.log('@@@@@@@@@@@', that.data.orderList);
         for (let i = 0; i < deliveryOrder.length; i++) {
-          that.data.products[deliveryOrder[i].orderId] = [];
+          that.data.products[deliveryOrder[i].order_id] = [];
           let orderDetailList = deliveryOrder[i].orderDetailList;
           for (let j = 0; j < orderDetailList.length; j++) {
             let product = {};
-            product.productId = orderDetailList[j].productId;
-            product.productName = orderDetailList[j].productName;
-            that.data.products[deliveryOrder[i].orderId].push(product);
+            product.productId = orderDetailList[j].product_id;
+            product.productName = orderDetailList[j].product_name;
+            that.data.products[deliveryOrder[i].order_id].push(product);
           }
         }
         that.setData({

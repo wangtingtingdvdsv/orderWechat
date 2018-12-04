@@ -23,7 +23,7 @@ Page({
       app.globalData.deliveryTime = year + "-" + month + '-' + day + ' ' + this.data.time + ':12';
     }
     app.globalData.Time = Date.parse(new Date(app.globalData.deliveryTime));
-    console.log(app.globalData.deliveryTime)
+    console.log("###", app.globalData.Time)
   },
   onLoad: function (e) {
     var nowDate = new Date();
@@ -55,17 +55,16 @@ Page({
       if (that.data.mealOrderInfo[obj].num != 0) {
         console.log("提交", that.data.mealOrderInfo[obj]);
         let item = {};
-        item.productId = that.data.mealOrderInfo[obj].productId;
+        item.productId = that.data.mealOrderInfo[obj].product_id;
         item.productQuantity = that.data.mealOrderInfo[obj].num;
         items.push(item);
       }
     }
     wx.request({
-      url: 'https://cxd.mynatapp.cc/buyer/order',
+      url: 'http://localhost:3008/buyer/createOrder',
+      //https://wangtingting.top:9009
       method:'POST',
-      header: {
-        'content-type': 'application/json'
-      },
+
       data:{
         userName: app.globalData.address.userName,
         userPhone: app.globalData.address.userPhone,
@@ -73,8 +72,10 @@ Page({
         userOpenid: app.globalData.userOpenid,
         deliveryTime: app.globalData.Time,
         items: items,
+        orderAmount: app.globalData.total
       },
       success:function(res){
+        console.log("@@@@@", res);
         app.globalData.orderId = res.data.data;
         console.log(res);
         console.log("success", app.globalData.orderId)

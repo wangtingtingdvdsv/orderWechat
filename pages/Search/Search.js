@@ -9,7 +9,7 @@ Page({
   Search:function(t){
     var that = this;
     wx.request({
-      url:"https://cxd.mynatapp.cc/buyer/product/key",
+      url:"https://wangtingting.top:9009/buyer/product/key",
       method:'GET',
       header: {
         'content-type': 'application/json' ,

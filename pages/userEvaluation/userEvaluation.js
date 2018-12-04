@@ -24,7 +24,7 @@ Page({
     let orderId = options.orderId;
     console.log(orderId);
     wx.request({
-      url: 'https://cxd.mynatapp.cc/buyer/comment/list',
+      url: 'https://wangtingting.top:9006/buyer/commentList',
       data: {
         orderId: orderId,
       },
