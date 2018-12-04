@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.0",
 	"appid": "wx928bccfbb4ff4fda",
-	"projectname": "order-Meal",
+	"projectname": "orderWechat",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
