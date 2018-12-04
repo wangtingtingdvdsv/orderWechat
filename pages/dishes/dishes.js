@@ -1,12 +1,12 @@
 const app = getApp();
 Page({
   data: {
-    productId:"",
+    product_id:"",
     sortMoudlePraise: true,
     sortMoudlePrice: false,
     currentData: 0,
     total:'00.00',
-    activeMenuId:'0', 
+    activeMenuId:'1', 
     mealOrderInfo: {},
     mealsInfo:{
     },
@@ -19,7 +19,7 @@ Page({
       sort = 2;
     }
     wx.request({
-      url: 'https://cxd.mynatapp.cc/buyer/product/list',
+      url: 'https://wangtingting.top:9009/buyer/product/list',
       method: 'GET',
       data:{
         sort: sort
@@ -29,31 +29,33 @@ Page({
       },
       success: function (resInfo) {
         var data = resInfo.data.data;
-        console.log(data)
-        console.log(data.length)
+
         for(let i = 0; i < data.length; i++) {
-          console.log(data[i].categoryName);
+         
           var end = that.data.vegetableClassification.some(function(currentValue){
                         //任意一项相等则不能push
-                        return currentValue.categoryName == data[i].categoryName ||    
-                               currentValue.categoryType == data[i].categoryType
+            return currentValue.category_name == data[i].category_name ||    
+              currentValue.category_type == data[i].category_id 
                     })
           if(!end) {
             that.data.vegetableClassification.push({
-              'categoryName': data[i].categoryName,
-              'categoryType': data[i].categoryType,
+              'category_name': data[i].category_name,
+              'category_type': data[i].category_id,
             });
           }
-          that.data.mealsInfo[data[i].categoryType] = data[i].products;
-          console.log(data[i].products)
+       
+          that.data.mealsInfo[data[i].category_id] = data[i].products;
+       
           for (let j = 0; j < data[i].products.length;j++) {
-            that.data.mealOrderInfo[data[i].products[j].productId] = {};
-            that.data.mealOrderInfo[data[i].products[j].productId].num = 0;
-            that.data.mealOrderInfo[data[i].products[j].productId].productId = data[i].products[j].productId;
-            that.data.mealOrderInfo[data[i].products[j].productId].productName = data[i].products[j].productName;
-            that.data.mealOrderInfo[data[i].products[j].productId].productPrice = data[i].products[j].productPrice;
+     
+            that.data.mealOrderInfo[data[i].products[j].product_id] = {};
+            that.data.mealOrderInfo[data[i].products[j].product_id].num = 0;
+            that.data.mealOrderInfo[data[i].products[j].product_id].product_id = data[i].products[j].product_id;
+            that.data.mealOrderInfo[data[i].products[j].product_id].productName = data[i].products[j].productName;
+            that.data.mealOrderInfo[data[i].products[j].product_id].product_price = data[i].products[j].product_price;
           }
         }
+  
         that.setData({
           mealOrderInfo: that.data.mealOrderInfo
         })
@@ -64,38 +66,44 @@ Page({
         that.setData({
           vegetableClassification: that.data.vegetableClassification
         })
+   
 
         //页面传参
         var activeMenuId = that.data.activeMenuId;
         var mealsInfo = that.data.mealsInfo;
-        var productId = 'Id'+mealsInfo[activeMenuId][0].productId;
-       
+
+        var product_id = 'Id' + mealsInfo[activeMenuId][0].product_id;
+
         if (options.keywords) {
-          console.log('keywords', options.keywords);
-          productId = 'Id'+options.keywords;
+     
+          product_id = 'Id'+options.keywords;
           //更改activeMenuId的值
-          let activeMenuId = that.getActiveMenuIdByProductId(productId)
+          let activeMenuId = that.getActiveMenuIdByProductId(product_id)
 
           that.setData({
             activeMenuId: activeMenuId
           })
         }
         that.setData({
-          productId: productId
+          product_id: product_id
         })
+      
       }
     })
     //获取收获地址
     let userId = app.globalData.userId;
     wx.request({
-      url: 'https://cxd.mynatapp.cc/user/info/'+userId,
+      url: 'https://wangtingting.top:9009/user/info/search',
       method: 'GET',
+      data: {
+        userId: userId
+      },
       header: {
         'content-type': 'html/text'
       },
       success: function (resInfo) {
         var data = resInfo.data.data;
-        console.log(data.userName);
+    
         app.globalData.address.userName = data.userName;
         app.globalData.address.userAddress = data.userAddress;
         app.globalData.address.userPhone = data.userPhone;
@@ -106,22 +114,22 @@ Page({
       }
     })
   },
-  getActiveMenuIdByProductId: function (productId) {
+  getActiveMenuIdByProductId: function (product_id) {
     var mealsInfo = this.data.mealsInfo;
     for(let item in mealsInfo) {
       let activeMenuId = item;
       for (let i = 0; i < mealsInfo[activeMenuId].length; i++) {
-        if (productId == 'Id'+mealsInfo[activeMenuId][i].productId) {
-         console.log('相等');
+        if (product_id == 'Id' + mealsInfo[activeMenuId][i].product_id) {
+      
           return activeMenuId;
         }
       }
     }
-    console.log('不相等');
+
   },
   individualMeals: function(event) {
     var id = event.target.id;
-    console.log(event);  
+
     var _this = this;
     _this.setData(
       {
@@ -132,6 +140,7 @@ Page({
   addmeal: function(event) {
     var _this = this;
     var id = event.target.id;
+   
     var activeMenuId = _this.data.activeMenuId; 
     var num = _this.data.mealOrderInfo[id].num;
     num++;
@@ -140,10 +149,10 @@ Page({
       mealOrderInfo: _this.data.mealOrderInfo
     })
     app.globalData.mealOrderInfo = _this.data.mealOrderInfo;   
-    console.log(this.data.mealOrderInfo);
+  
     for (let i = 0; i < _this.data.mealsInfo[activeMenuId].length; i++) {
-      if (_this.data.mealsInfo[activeMenuId][i].productId == id) {
-        var money = Number(_this.data.total) + Number(_this.data.mealsInfo[activeMenuId][i].productPrice)
+      if (_this.data.mealsInfo[activeMenuId][i].product_id == id) {
+        var money = Number(_this.data.total) + Number(_this.data.mealsInfo[activeMenuId][i].product_price)
         _this.setData({
         total: money.toFixed(2)
         })   
@@ -164,8 +173,8 @@ Page({
     })
     app.globalData.mealOrderInfo = _this.data.mealOrderInfo;   
     for (let i = 0; i < _this.data.mealsInfo[activeMenuId].length; i++) {
-      if (_this.data.mealsInfo[activeMenuId][i].productId == id) {
-        var money = Number(_this.data.total) - Number(_this.data.mealsInfo[activeMenuId][i].productPrice)
+      if (_this.data.mealsInfo[activeMenuId][i].product_id == id) {
+        var money = Number(_this.data.total) - Number(_this.data.mealsInfo[activeMenuId][i].product_price)
         _this.setData({
           total: money.toFixed(2)
         })
@@ -234,13 +243,13 @@ Page({
   },
   //商品评价页
   evaluation: function(event) {
-    var productId = event.currentTarget.dataset.in;
-    console.log(event.currentTarget.dataset.in)
+    var product_id = event.currentTarget.dataset.in;
+
     if (event.currentTarget.id != "mealInfoTop") {
       return;
     }
     wx.navigateTo({
-      url: '/pages/evaluation/evaluation?productId=' + productId,
+      url: '/pages/evaluation/evaluation?product_id=' + product_id,
     })
   },
   sortTheMoudlePraise: function () {
@@ -311,7 +320,6 @@ Page({
     })
   },
   Search: function (t) {
-    console.log("搜素");
     wx.navigateTo({
       url: "../Search/Search"
     })

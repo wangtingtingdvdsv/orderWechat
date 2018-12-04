@@ -10,16 +10,20 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
-    var productId = options.productId;
+    var product_id = options.product_id;
+    console.log(options.product_id)
     //展示后台给的评分
     wx.request({
-      url: 'https://cxd.mynatapp.cc/buyer/comment/'+productId,
+      url: 'https://wangtingting.top:9009/buyer/searchComment/',
       method: 'GET',
+      data: {
+        product_id:product_id
+      },
       header: {
         'content-type': 'application/json',
       },
       success: function(res) {
-        console.log(options.productId)
+       
         var data = res.data.data;
         console.log(data);
         for(let i = 0; i < data.length; i++) {
