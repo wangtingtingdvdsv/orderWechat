@@ -23,7 +23,7 @@ Page({
       app.globalData.deliveryTime = year + "-" + month + '-' + day + ' ' + this.data.time + ':12';
     }
     app.globalData.Time = Date.parse(new Date(app.globalData.deliveryTime));
-    console.log("###", app.globalData.Time)
+
   },
   onLoad: function (e) {
     var nowDate = new Date();
@@ -34,8 +34,7 @@ Page({
       total: app.globalData.total,
       nowTime: nowTime
     })
-    console.log(app.globalData.mealOrderInfo);
-    console.log(app.globalData.total);
+
     //地址
     that.setData({
       address: app.globalData.address
@@ -53,7 +52,7 @@ Page({
     }
     for (var obj in that.data.mealOrderInfo) {
       if (that.data.mealOrderInfo[obj].num != 0) {
-        console.log("提交", that.data.mealOrderInfo[obj]);
+
         let item = {};
         item.productId = that.data.mealOrderInfo[obj].product_id;
         item.productQuantity = that.data.mealOrderInfo[obj].num;
@@ -61,8 +60,7 @@ Page({
       }
     }
     wx.request({
-      url: 'http://localhost:3008/buyer/createOrder',
-      //https://wangtingting.top:9009
+      url: 'https://wangtingting.top:9009/buyer/createOrder',
       method:'POST',
 
       data:{
@@ -75,10 +73,8 @@ Page({
         orderAmount: app.globalData.total
       },
       success:function(res){
-        console.log("@@@@@", res);
+
         app.globalData.orderId = res.data.data;
-        console.log(res);
-        console.log("success", app.globalData.orderId)
       },
       error: function (error) {
         console.log("error", error)

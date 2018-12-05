@@ -11,7 +11,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     var product_id = options.product_id;
-    console.log(options.product_id)
+
     //展示后台给的评分
     wx.request({
       url: 'https://wangtingting.top:9009/buyer/searchComment/',
@@ -25,26 +25,21 @@ Page({
       success: function(res) {
        
         var data = res.data.data;
-        console.log(data);
+
         for(let i = 0; i < data.length; i++) {
-          let time = new Date(data[i].createTime);
+          let time = new Date(data[i].create_time);
+        
           data[i].createTime = time.getFullYear() + "-" + Number(time.getMonth() + 1) + "-" + time.getDate() + " "+ time.getHours() +":"+time.getMinutes();
-          Number()
+       
+          data[i].one_1= data[i].quality_score
+          data[i].two_1= 5 - data[i].quality_score
+          data[i].one_2 = data[i].taste_score,
+          data[i].two_2 = 5 - data[i].taste_score
+          data[i].one_3 = data[i].packing_score,
+          data[i].two_3 = 5 - data[i].packing_score
         }
         that.setData({
           evaluatons:data
-        })
-        that.setData({
-          one_1: data[0].qualityScore,
-          two_1: 5 - data[0].qualityScore
-        })
-        that.setData({
-          one_2: data[0].tasteScore,
-          two_2: 5 - data[0].tasteScore
-        })
-        that.setData({
-          one_3: data[0].packingScore,
-          two_3: 5 - data[0].packingScore
         })
       }
     })

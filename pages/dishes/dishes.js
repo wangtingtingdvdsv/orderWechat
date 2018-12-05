@@ -103,7 +103,6 @@ Page({
       },
       success: function (resInfo) {
         var data = resInfo.data.data[0];
-        console.log("@@@@@resInfo", data);
         app.globalData.address.userName = data.user_name;
         app.globalData.address.userAddress = data.user_address;
         app.globalData.address.userPhone = data.user_phone;

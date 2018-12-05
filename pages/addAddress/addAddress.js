@@ -18,15 +18,12 @@ Page({
     } else {
       let openId = app.globalData.userOpenid;
       value.openId=openId;
-      console.log('value', value);
       wx.request({
         url: 'https://wangtingting.top:9009/user/info/modify',
-        //https://wangtingting.top:9009
         method: 'POST',
         data:value,
 
         success: function (resInfo) {
-          console.log("结果", resInfo);
           wx.navigateTo({
              url: '/pages/submit/submit',
           })

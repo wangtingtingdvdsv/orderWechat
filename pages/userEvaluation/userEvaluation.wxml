@@ -7,29 +7,29 @@
       <view >
       <!-- 评价题目（菜品名称） -->
         <view class="order-title-restaurantName">
-         {{item.productName}}：</view>
+         {{item.product_name}}：</view>
          <image class="order-content-restaurantImg"
-         src=" {{item.productIcon}}"></image>
+         src="{{item.product_icon}}"></image>
       </view>
       <!-- 评价菜品详情 -->
       <view class="order-content-info">
         <view class='container-commodity'>
         <!-- 商品质量 -->
           <view>商品质量：</view>
-          <image wx:for="{{item.qualityScore}}" wx:key="{{item.qualityScore}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
-          <image wx:for="{{5-item.qualityScore}}" wx:key="{{5-item.qualityScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+          <image wx:for="{{item.quality_score}}" wx:key="{{item.quality_score}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
+          <image wx:for="{{5-item.quality_score}}" wx:key="{{5-item.quality_score}}" src='../../pic/badStar.png' class='Starimg'></image>
         </view>
         <!-- 口味信息 -->
         <view class='container-commodity'>
           <view>口味：</view>
-          <image wx:for="{{item.tasteScore}}" wx:key="{{item.tasteScore}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
-          <image wx:for="{{5-item.tasteScore}}" wx:key="{{5-item.tasteScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+          <image wx:for="{{item.taste_score}}" wx:key="{{item.taste_score}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
+          <image wx:for="{{5-item.taste_score}}" wx:key="{{5-item.taste_score}}" src='../../pic/badStar.png' class='Starimg'></image>
         </view>
         <!-- 包装信息 -->
         <view class='container-commodity'>
           <view>包装：</view>
-          <image wx:for="{{item.packingScore}}" wx:key="{{item.packingScore}}" src='../../pic/evalutionStar.png' class='Starimg'>></image>
-          <image wx:for="{{5-item.packingScore}}"  wx:key="{{5-item.packingScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+          <image wx:for="{{item.packing_score}}" wx:key="{{item.packing_score}}" src='../../pic/evalutionStar.png' class='Starimg'>></image>
+          <image wx:for="{{5-item.packing_score}}"  wx:key="{{5-item.packing_score}}" src='../../pic/badStar.png' class='Starimg'></image>
         </view>
       </view>
     </view>

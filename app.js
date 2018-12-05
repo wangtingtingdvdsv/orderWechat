@@ -1,5 +1,6 @@
 App({
   globalData: {
+    userIcon:"",
     userId:"",
     total:'',
     userOpenid:'',

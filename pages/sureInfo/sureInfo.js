@@ -30,6 +30,7 @@ Page({
                   success: function (resInfo) {
                     console.log("sucess",resInfo);
                     app.globalData['userId'] = resInfo.data.data[0].user_id;
+                    app.globalData['userIcon'] = resInfo.data.data[0].user_icon
                     app.globalData['userOpenid'] = resInfo.data.data[0].user_openid ;
                    // console.log("@###@#", resInfo.data.data[0].user_openid)
                     wx.redirectTo({

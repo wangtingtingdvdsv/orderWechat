@@ -3,10 +3,7 @@ Page({
   data: {
     orderId:"",
     product:[
-      // {
-      //   productId,
-      //   productName,
-      // }
+
     ],
     starNum:{
     }, 
@@ -24,7 +21,7 @@ Page({
     let object = JSON.parse(options.jsonStr);
     this.setData({ product: object });
     this.setData({ orderId: orderId });
-    console.log(orderId);
+  
     //初始化starNum
     for (let i = 0; i < this.data.product.length; i++) {
       this.data.starNum[this.data.product[i].productId] = {}
@@ -105,13 +102,13 @@ Page({
   // 评价提交信息
   submitCommentButton: function() {
     var that = this;
-    console.log("------------", that.data.starNum);
     let i = 0;
     var arr = [];
     for (let producted in that.data.starNum) {
       arr[i] = {};
       arr[i].orderId = that.data.orderId;
       arr[i].productId = producted;
+  
       arr[i].userOpenid = app.globalData.userOpenid;
       arr[i].qualityScore = that.data.starNum[producted].one_1;
       arr[i].tasteScore = that.data.starNum[producted].one_2;
@@ -119,15 +116,15 @@ Page({
       i++
     }
 
-
-
     wx.request({
       url: 'https://wangtingting.top:9009/buyer/createComment',
         method: 'POST',
         header: {
           'content-type': 'application/json'
         },
-        data: arr,
+        data: {
+          commentInfo:arr
+        },
         success: function (res) {
          
           wx.showToast({

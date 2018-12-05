@@ -9,7 +9,7 @@ Page({
     this.setData({
       total: app.globalData.total
     })
-    console.log("time", app.globalData.deliveryTime);
+
     //顾客各种信息
     var delivery = {};
     var date = new Date();

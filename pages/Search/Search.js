@@ -20,7 +20,7 @@ Page({
       success:function(t){
         var data = t.data.data;
         if(data != ''){
-          console.log("搜索", data);
+         
           that.setData({
             productJson: t.data.data
           })
@@ -34,14 +34,14 @@ Page({
         }
       },
       fail:function(t){
-       // console.log(t.data)``
+       
       }
     })
   },
   // 页面传值keywords即菜品信息
   bindSearch: function (e) {
     var keywords = e.target.id;
-    console.log("keywords", keywords);
+   
     var url = '../dishes/dishes?keywords=' + keywords;
     wx.reLaunch({
       url: url
