@@ -1,10 +1,10 @@
 <!-- 用户评价页面 -->
 <view wx:for="{{evaluatons}}" class='peopleEvalution'>
-  <image class='people' src="{{item.userIcon}}" alt="好评"></image>
+  <image class='people' src="{{item.user_icon}}" alt="好评"></image>
   <view class='evaluation'>
     <view class='evaluationTime'>
     <!-- 用户名称 -->
-      <text>{{item.userName}}</text>
+      <text>{{item.user_name}}</text>
     <!-- 用户创建评价时间 -->
       <text class='time'> {{item.createTime}}</text>
     </view>
@@ -13,20 +13,20 @@
         <view class='container-commodity'>
         <!-- 商品质量 -->
           <view>商品质量：</view>
-          <image wx:for="{{item.qualityScore}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
-          <image wx:for="{{5-item.qualityScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+          <image wx:for="{{item.quality_score}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
+          <image wx:for="{{5-item.quality_score}}" src='../../pic/badStar.png' class='Starimg'></image>
         </view>
         <!-- 口味信息 -->
         <view class='container-commodity'>
           <view>口味：</view>
-          <image wx:for="{{item.tasteScore}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
-          <image wx:for="{{5-item.tasteScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+          <image wx:for="{{item.taste_score}}" src='../../pic/evalutionStar.png' class='Starimg'></image>
+          <image wx:for="{{5-item.taste_score}}" src='../../pic/badStar.png' class='Starimg'></image>
         </view>
         <!-- 包装信息 -->
         <view class='container-commodity'>
           <view>包装：</view>
-          <image wx:for="{{item.packingScore}}" src='../../pic/evalutionStar.png' class='Starimg'>></image>
-          <image wx:for="{{5-item.packingScore}}" src='../../pic/badStar.png' class='Starimg'></image>
+          <image wx:for="{{item.packing_score}}" src='../../pic/evalutionStar.png' class='Starimg'>></image>
+          <image wx:for="{{5-item.packing_score}}" src='../../pic/badStar.png' class='Starimg'></image>
         </view>
       </view>
   </view>

@@ -51,33 +51,33 @@
     <!-- 选择菜品菜单模块 -->
     <scroll-view scroll-y wx:key="choiceDishes" style='height:880rpx' bindtap="individualMeals" class="dishesMoudleLeft">
        <view class="single">
-          <view  class="{{activeMenuId == item.categoryType ? 'active' : ''}}" wx:key="choiceMenu" wx:for="{{vegetableClassification}}"  id="{{item.categoryType}}" >{{item.categoryName}}        </view>
+          <view  class="{{activeMenuId == item.category_type ? 'active' : ''}}" wx:key="choiceMenu" wx:for="{{vegetableClassification}}"  id="{{item.category_type}}" >{{item.category_name}}        </view>
        </view>
 
     </scroll-view>
     <!-- 菜品详情板块 -->
-    <scroll-view style='height:880rpx' scroll-y scroll-into-view="{{productId}}" class="dishesMoudleRight">
-      <view id='Id{{item.productId}}' wx:key="ChoiceMoudle" wx:for="{{mealsInfo[activeMenuId]}}" class="mealInfo">
-        <view  bindtap='evaluation' data-in="{{item.productId}}" id='mealInfoTop' class="mealInfoTop">
-          <image class="mealPic" src="{{item.productIcon}}" alt="食物"></image>
+    <scroll-view style='height:880rpx' scroll-y scroll-into-view="{{product_id}}" class="dishesMoudleRight">
+      <view id='Id{{item.product_id}}' wx:key="ChoiceMoudle" wx:for="{{mealsInfo[activeMenuId]}}" class="mealInfo">
+        <view  bindtap='evaluation' data-in="{{item.product_id}}" id='mealInfoTop' class="mealInfoTop">
+          <image class="mealPic" src="{{item.product_icon}}" alt="食物"></image>
           <view class="info">
-            <text class="mealName">{{item.productName}}</text>
+            <text class="mealName">{{item.product_name}}</text>
             <view class="star">             
-              <image wx:for="{{item.productScore}}" wx:key="item.productScore" class="starImage" src="../../pic/star.png" alt="星星"></image>
-              <image wx:for="{{5-item.productScore}}" wx:key="5-item.productScore" class="starImage" src="../../pic/badStar.png" alt="星星"></image>
+              <image wx:for="{{item.product_score}}" wx:key="item.product_score" class="starImage" src="../../pic/star.png" alt="星星"></image>
+              <image wx:for="{{5-item.product_score}}" wx:key="5-item.product_score" class="starImage" src="../../pic/badStar.png" alt="星星"></image>
             </view>
-            <text class="sale">月销量：<text>{{item.productSales}}</text></text>
+            <text class="sale">月销量：<text>{{item.product_sales}}</text></text>
           </view>
         </view>
         <text class="description">
-            {{item.productDescription}}
+            {{item.product_description}}
         </text>
         <view class="mealPrice">
-            <text>￥{{item.productPrice}}</text> 
+            <text>￥{{item.product_price}}</text> 
             <view id='6'>
-              <image id='{{item.productId}}' bindtap='minusmeal' class="minusImage {{mealOrderInfo[item.productId].num == 0 ? 'hidden=' : ''}}" src="../../pic/minus.png" alt="减号"></image>
-              <text>{{mealOrderInfo[item.productId].num === 0 ?"":mealOrderInfo[item.productId].num}}</text>
-              <image id='{{item.productId}}' bindtap='addmeal' class="signImage" src="../../pic/sign.png" alt="加号"></image>
+              <image id='{{item.product_id}}' bindtap='minusmeal' class="minusImage {{mealOrderInfo[item.product_id].num == 0 ? 'hidden=' : ''}}" src="../../pic/minus.png" alt="减号"></image>
+              <text>{{mealOrderInfo[item.product_id].num === 0 ?"":mealOrderInfo[item.product_id].num}}</text>
+              <image id='{{item.product_id}}' bindtap='addmeal' class="signImage" src="../../pic/sign.png" alt="加号"></image>
             </view>
         </view>
       </view>
@@ -109,13 +109,13 @@
       <image src='../../pic/lese.png' style='padding:10rpx;width:50rpx;height:50rpx;'></image>
     </view>
     <view class='mealDetails'>
-      <view class='mealDetail' wx:for="{{mealsInfo[activeMenuId]}}" wx:if="{{mealOrderInfo[item.productId] != 0}}">      
-        <text>{{item.productName}}</text>
+      <view class='mealDetail' wx:for="{{mealsInfo[activeMenuId]}}" wx:if="{{mealOrderInfo[item.product_id] != 0}}">      
+        <text>{{item.product_name}}</text>
         <view>
-          <text>￥{{item.productPrice}}  </text>
-  <image id='{{item.productId}}' bindtap='minusmeal' class="minusImage {{mealOrderInfo[item.productId].num == 0 ? 'hidden=' : ''}}" src="../../pic/minus.png" alt="减号"></image>
-              <text>{{mealOrderInfo[item.productId].num === 0 ?"":mealOrderInfo[item.productId].num}}</text>
-              <image id='{{item.productId}}' bindtap='addmeal' class="signImage" src="../../pic/sign.png" alt="加号"></image>
+          <text>￥{{item.product_price}}  </text>
+  <image id='{{item.product_id}}' bindtap='minusmeal' class="minusImage {{mealOrderInfo[item.product_id].num == 0 ? 'hidden=' : ''}}" src="../../pic/minus.png" alt="减号"></image>
+              <text>{{mealOrderInfo[item.product_id].num === 0 ?"":mealOrderInfo[item.product_id].num}}</text>
+              <image id='{{item.product_id}}' bindtap='addmeal' class="signImage" src="../../pic/sign.png" alt="加号"></image>
         </view>
       </view>
     </view>

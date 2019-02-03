@@ -17,21 +17,22 @@ Page({
               success: function(res_user) {
                 console.log(res_user);
                 wx.request({
-                  url: 'https://cxd.mynatapp.cc/wechat/login',
+                  url: 'https://wangtingting.top:9009/wechat/login',
                   data: {
                     code: res.code,
                     encryptedData: res_user.encryptedData,
                     iv: res_user.iv
                   },
-                  method: 'POST',
+                  method: 'get',
                   header: {
                     'content-type': 'application/json'
                   },
                   success: function (resInfo) {
-                    console.log(resInfo);
-                    app.globalData['userId'] = resInfo.data.data.userId;
-                    app.globalData['userOpenid'] = resInfo.data.data.userOpenid;
-                    console.log(resInfo.data.data.userOpenid)
+                    console.log("sucess",resInfo);
+                    app.globalData['userId'] = resInfo.data.data[0].user_id;
+                    app.globalData['userIcon'] = resInfo.data.data[0].user_icon
+                    app.globalData['userOpenid'] = resInfo.data.data[0].user_openid ;
+                   // console.log("@###@#", resInfo.data.data[0].user_openid)
                     wx.redirectTo({
                       url: '../dishes/dishes',
                     })

@@ -16,16 +16,14 @@ Page({
         content: '请完善信息',
       })
     } else {
-      let userId = app.globalData.userId;
+      let openId = app.globalData.userOpenid;
+      value.openId=openId;
       wx.request({
-        url: 'https://cxd.mynatapp.cc/user/info/'+userId,
+        url: 'https://wangtingting.top:9009/user/info/modify',
         method: 'POST',
-        data:JSON.stringify(value),
-        header: {
-          'content-type': 'application/json;charset=UTF-8'
-        },
+        data:value,
+
         success: function (resInfo) {
-         // console.log("结果", resInfo);
           wx.navigateTo({
              url: '/pages/submit/submit',
           })

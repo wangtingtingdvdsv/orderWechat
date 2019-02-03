@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    userIcon:'',
     orderId: "",
     product: [
       // {
@@ -19,12 +20,16 @@ Page({
     // 给评价一个起始值
   },
   onLoad: function (options) {
-    //接受父页面传递过来的参数orderId,以orderId为返回参数
     var that = this;
+    that.setData({
+      userIcon: app.globalData.userIcon
+    })
+    //接受父页面传递过来的参数orderId,以orderId为返回参数
+  
     let orderId = options.orderId;
-    console.log(orderId);
+
     wx.request({
-      url: 'https://cxd.mynatapp.cc/buyer/comment/list',
+      url: 'https://wangtingting.top:9009/buyer/commentList',
       data: {
         orderId: orderId,
       },
@@ -33,7 +38,7 @@ Page({
       },
       method: 'GET',
       success: function(res) {
-        console.log(res)
+
         that.setData({
           product: res.data.data
         })

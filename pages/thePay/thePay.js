@@ -9,7 +9,7 @@ Page({
   },
   //事件处理函数
   onLoad: function () {
-    console.log(app.globalData.total);
+
     this.setData({
       actual_fee: app.globalData.total
     })
@@ -39,7 +39,6 @@ Page({
     }
   },
   set_Focus() {//聚焦input
-    console.log('isFocus', this.data.isFocus)
     this.setData({
       isFocus: true
     })
@@ -68,13 +67,13 @@ function pay(_this) {
   if (payment_mode == 1) {
     //  微信支付
     // 微信自带密码输入框
-    console.log('微信支付')
+
   } else if (payment_mode == 0) {
     //  转账支付 后续跳转至传转账单照片
-    console.log('转账支付')
+
   } else if (payment_mode == 2) {
     // 钱包支付 输入密码
-    console.log('钱包支付')
+
     _this.setData({
       wallets_password_flag: true,
       isFocus: true
@@ -83,7 +82,7 @@ function pay(_this) {
 }
 // 钱包支付
 function wallet_pay(_this) {
-  console.log('钱包支付请求函数')
+
   wx.showToast({
     title: '正在支付',
     icon: 'loading',
@@ -95,7 +94,7 @@ function wallet_pay(_this) {
   })
   // 支付结束将订单状态反回给后端
   wx.request({
-    url: 'https://cxd.mynatapp.cc/buyer/order/pay',
+    url: 'https://wangtingting.top:9009/buyer/orderPay',
     method: 'POST',
     header: {
       'content-type': 'application/json'
@@ -105,7 +104,7 @@ function wallet_pay(_this) {
       orderId: app.globalData.orderId
     },
     success: function (res) {
-      console.log(res)
+
     }
   })
   /*

@@ -9,7 +9,7 @@ Page({
   Search:function(t){
     var that = this;
     wx.request({
-      url:"https://cxd.mynatapp.cc/buyer/product/key",
+      url:"https://wangtingting.top:9009/buyer/product/key",
       method:'GET',
       header: {
         'content-type': 'application/json' ,
@@ -20,7 +20,7 @@ Page({
       success:function(t){
         var data = t.data.data;
         if(data != ''){
-          console.log("搜索", data);
+         
           that.setData({
             productJson: t.data.data
           })
@@ -34,14 +34,14 @@ Page({
         }
       },
       fail:function(t){
-       // console.log(t.data)``
+       
       }
     })
   },
   // 页面传值keywords即菜品信息
   bindSearch: function (e) {
     var keywords = e.target.id;
-    console.log("keywords", keywords);
+   
     var url = '../dishes/dishes?keywords=' + keywords;
     wx.reLaunch({
       url: url
