@@ -68,6 +68,7 @@ function pay(_this) {
     //  微信支付
     // 微信自带密码输入框
 
+
   } else if (payment_mode == 0) {
     //  转账支付 后续跳转至传转账单照片
 

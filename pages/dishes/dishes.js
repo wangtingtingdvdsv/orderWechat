@@ -1,4 +1,5 @@
 const app = getApp();
+var util = require('../../utils/util.js'); 
 Page({
   data: {
     product_id:"",
@@ -13,6 +14,7 @@ Page({
     vegetableClassification: []
   },
   onLoad: function(options) {
+   
     var that = this;
     var sort = 1;
     if (this.data.sortMoudlePrice) {
@@ -28,66 +30,10 @@ Page({
         'content-type': 'text/html'
       },
       success: function (resInfo) {
-        var data = resInfo.data.data;
-
-        for(let i = 0; i < data.length; i++) {
-         
-          var end = that.data.vegetableClassification.some(function(currentValue){
-                        //任意一项相等则不能push
-            return currentValue.category_name == data[i].category_name ||    
-              currentValue.category_type == data[i].category_id 
-                    })
-          if(!end) {
-            that.data.vegetableClassification.push({
-              'category_name': data[i].category_name,
-              'category_type': data[i].category_id,
-            });
-          }
-       
-          that.data.mealsInfo[data[i].category_id] = data[i].products;
-       
-          for (let j = 0; j < data[i].products.length;j++) {
-     
-            that.data.mealOrderInfo[data[i].products[j].product_id] = {};
-            that.data.mealOrderInfo[data[i].products[j].product_id].num = 0;
-            that.data.mealOrderInfo[data[i].products[j].product_id].product_id = data[i].products[j].product_id;
-            that.data.mealOrderInfo[data[i].products[j].product_id].product_name = data[i].products[j].product_name;
-            that.data.mealOrderInfo[data[i].products[j].product_id].product_price = data[i].products[j].product_price;
-          }
-        }
-  
-        that.setData({
-          mealOrderInfo: that.data.mealOrderInfo
-        })
-        app.globalData.mealOrderInfo = that.data.mealOrderInfo;   
-        that.setData({
-          mealsInfo: that.data.mealsInfo
-        })
-        that.setData({
-          vegetableClassification: that.data.vegetableClassification
-        })
-   
-
-        //页面传参
-        var activeMenuId = that.data.activeMenuId;
-        var mealsInfo = that.data.mealsInfo;
-
-        var product_id = 'Id' + mealsInfo[activeMenuId][0].product_id;
-
-        if (options.keywords) {
-     
-          product_id = 'Id'+options.keywords;
-          //更改activeMenuId的值
-          let activeMenuId = that.getActiveMenuIdByProductId(product_id)
-
-          that.setData({
-            activeMenuId: activeMenuId
-          })
-        }
-        that.setData({
-          product_id: product_id
-        })
-      
+        that.dealProductData(resInfo.data.data, options)
+      },
+      error: function(error) {
+        console.log('error', error);
       }
     })
     //获取收获地址
@@ -109,9 +55,70 @@ Page({
         app.globalData.address.userGender = data.user_gender;
         
       },
-      error: function(){
-        console.log("错误");
+      error: function(error){
+        console.log(error);
       }
+    })
+  },
+  
+  dealProductData(data, options){
+    let that = this;
+    for (let i = 0; i < data.length; i++) {
+
+      var end = that.data.vegetableClassification.some(function (currentValue) {
+        //任意一项相等则不能push
+        return currentValue.category_name == data[i].category_name ||
+          currentValue.category_type == data[i].category_id
+      })
+      if (!end) {
+        that.data.vegetableClassification.push({
+          'category_name': data[i].category_name,
+          'category_type': data[i].category_id,
+        });
+      }
+
+      that.data.mealsInfo[data[i].category_id] = data[i].products;
+
+      for (let j = 0; j < data[i].products.length; j++) {
+
+        that.data.mealOrderInfo[data[i].products[j].product_id] = {};
+        that.data.mealOrderInfo[data[i].products[j].product_id].num = 0;
+        that.data.mealOrderInfo[data[i].products[j].product_id].product_id = data[i].products[j].product_id;
+        that.data.mealOrderInfo[data[i].products[j].product_id].product_name = data[i].products[j].product_name;
+        that.data.mealOrderInfo[data[i].products[j].product_id].product_price = data[i].products[j].product_price;
+      }
+    }
+
+    that.setData({
+      mealOrderInfo: that.data.mealOrderInfo
+    })
+    app.globalData.mealOrderInfo = that.data.mealOrderInfo;
+    that.setData({
+      mealsInfo: that.data.mealsInfo
+    })
+    that.setData({
+      vegetableClassification: that.data.vegetableClassification
+    })
+
+
+    //页面传参
+    var activeMenuId = that.data.activeMenuId;
+    var mealsInfo = that.data.mealsInfo;
+
+    var product_id = 'Id' + mealsInfo[activeMenuId][0].product_id;
+
+    if (options.keywords) {
+
+      product_id = 'Id' + options.keywords;
+      //更改activeMenuId的值
+      let activeMenuId = that.getActiveMenuIdByProductId(product_id)
+
+      that.setData({
+        activeMenuId: activeMenuId
+      })
+    }
+    that.setData({
+      product_id: product_id
     })
   },
   getActiveMenuIdByProductId: function (product_id) {
